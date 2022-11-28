@@ -13,6 +13,9 @@ const spriteWidth = 575;
 // 5230px height - 5230 / 10 rows = 523
 const spriteHeight = 523;
 
+let frameX = 0;
+let frameY = 3;
+
 // Showcase it is animated
 // let x = 0;
 
@@ -21,8 +24,10 @@ function animate() {
     // ctx.fillRect(50, 50, 100, 100);
     // Showcase it is animated
     // x++;
-    // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh)
-    ctx.drawImage(playerImage, 0, 0, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+    // ctx.drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh);
+    ctx.drawImage(playerImage, frameX * spriteWidth, frameY * spriteHeight, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
+    if (frameX < 6) frameX++;
+    else frameX = 0;
     requestAnimationFrame(animate);
 }
 
