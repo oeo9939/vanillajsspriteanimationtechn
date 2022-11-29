@@ -1,3 +1,10 @@
+let playerState = "fall";
+const animationsEl = document.getElementById("animations");
+animationsEl.addEventListener("change", (e) => {
+    playerState = e.target.value;
+
+});
+
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 // console.log(ctx);
@@ -12,6 +19,15 @@ const spriteWidth = 575;
 
 // 5230px height - 5230 / 10 rows = 523
 const spriteHeight = 523;
+
+// animationsEl.addEventListener("change", updateValue);
+
+// function updateValue(e) {
+//     e.target.value;
+// }
+
+
+// console.log(playerState);
 
 // let frameX = 0;
 // let frameY = 4;
@@ -81,9 +97,9 @@ console.log(spriteAnimations);
 
 function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations["idle"].loc.length;
+    let position = Math.floor(gameFrame / staggerFrames) % spriteAnimations[playerState].loc.length;
     let frameX = spriteWidth * position;
-    let frameY = spriteAnimations["idle"].loc[position].y;
+    let frameY = spriteAnimations[playerState].loc[position].y;
     // ctx.fillRect(50, 50, 100, 100);
     // Showcase it is animated
     // x++;
